@@ -43,3 +43,11 @@
   background-color: red;
   z-index: 1;
 }
+
+.btn {
+  position: absolute;
+  height: 100px;
+  background-color: tomato;
+  left: 100px;
+  right: 100px;
+}
