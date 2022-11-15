@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 텍스트 관련 속성</title>
+
+    <link rel="stylesheet" href="./4_text.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>font-family</h2>
+    <ul>
+      <li>font-family는 폰트를 지정하는 속성이다.</li>
+      <li>여러개의 폰트를 지정하면 우선순위에 따라 적용된다.</li>
+      <li>폰트에 띄어쓰기가 있다면 ""(큰따옴표)안에 넣는다.</li>
+    </ul>
+
+    <h2>font-weight</h2>
+    <ul>
+      <li>font-weight는 글씨의 가중도(굵기)를 지정한다.</li>
+      <li>
+        100~900까지 100단위로 지정한다. 혹은 bold, light와 같은 키워드로
+        지정가능하다. 단,해당 가중도의 폰트가 있어야 한다. 없으면 가장 가까운
+        최대 숫자를 지정한다.
+      </li>
+    </ul>
+    <h2>font-size</h2>
+    <ul>
+      <li>font-size는 글씨의 크기를 지정한다.</li>
+      <li>px과 같은 고정 단위 혹은 em, rem과 같은 상대 단위를 사용한다.</li>
+    </ul>
+    <h2>color</h2>
+    <ul class="color">
+      <li>color는 글씨의 색상을 지정한다.</li>
+      <li>
+        <a href="#">a태그</a>는 기본 컬러가 있어 상위 요소로부터 상속받지
+        않는다.
+      </li>
+    </ul>
+
+    <h2>text-align</h2>
+    <ul class="align">
+      <li>text-align은 글씨의 정렬 방법을 지정한다.</li>
+      <li>영역을 나누는 블록 요소에 사용한다.</li>
+      <li>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quam nemo
+        accusantium placeat impedit necessitatibus cum cupiditate dolore, facere
+        molestias delectus nam natus quasi quis quia similique obcaecati sed
+        rerum quibusdam asperiores quisquam, nulla, molestiae velit provident.
+        Recusandae, sit delectus temporibus odit architecto provident non libero
+        nostrum mollitia possimus praesentium ipsam dolor eius dolorum beatae
+        cumque similique voluptatum nihil eaque. Harum, ab sint dolorum
+        asperiores assumenda ea tempora eius quisquam sequi earum id, illo omnis
+        fuga ratione ipsum possimus natus quaerat suscipit repellat tenetur?
+        Maiores hic, id dolorem, explicabo laboriosam architecto repellendus
+        facilis nemo ex dicta cum soluta quidem suscipit?
+      </li>
+    </ul>
+    <h2>text-transform</h2>
+    <ul class="transform">
+      <li>TEXT-transform은 글씨를 대문자, 소문자로 변형시킨다.</li>
+    </ul>
+
+    <h2>text-decoration</h2>
+    <ul class="decoration">
+      <li>글씨에 줄을 그어서 꾸민다.</li>
+      <li>선의 위치, 모양, 색상, 두께를 지정할 수 있다.</li>
+    </ul>
+
+    <h2 class="lineHeight">line-height</h2>
+    <ul>
+      <li>line-height는 줄 간격을 조정한다.</li>
+      <li>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
+        obcaecati iure laborum unde repellat temporibus ipsum perferendis dolor
+        deleniti quibusdam placeat repudiandae saepe odit facilis, assumenda
+        commodi nobis aperiam ipsam, ex dicta ut modi rem. Amet tempora quaerat
+        accusamus facere quas iusto, velit inventore tempore eum pariatur cumque
+        sed obcaecati?
+      </li>
+      <li>
+        word-sapcing은 단어간의 간격, letter-spacing은 글자간의 간격을 조정한다.
+      </li>
+    </ul>
+  </body>
+</html>
