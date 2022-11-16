@@ -1,0 +1,21 @@
+.box {
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0;
+  width: 50vw;
+  height: 50vh;
+
+  background: red;
+}
+
+@media screen and (min-width: 700px) {
+  .box {
+    background: black;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .box {
+    background: blue;
+  }
+}

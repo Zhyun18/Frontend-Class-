@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* 주축 */
+  align-items: flex-end; /* 교차 축, strech 는 알아야한다.*/
+  flex-wrap: nowrap;
+
+  width: 200;
+  height: 400px;
+
+  overflow: hidden;
+
+  /* padding: 30px; */
+  border: 3px solid black;
+}
+
+.box {
+  display: flex;
+  /* 아이템을 가운데로 정렬하고 싶으면 justify-content, align0items 를 center로 입력하면 된다. */
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  flex-basis: 100px;
+
+  /* width: 300px; */
+  height: 100px;
+  background-color: aquamarine;
+
+  margin: 10px;
+
+  animation: slide 2s infinite alternate linear;
+}
+
+.box:nth-of-type(1) {
+  /* flex-grow: 2;
+  flex-shrink: 1; */
+
+  /* flex: 2 1 100px; */
+  flex-grow: 2;
+}
+
+.box:nth-of-type(2) {
+    /* flex-grow: 1;
+    flex-shrink: 2; */
+  /* flex: 1 2 100px; */
+  flex: 1;
+}
+
+.box:nth-of-type(3) {
+  /* flex-grow: 3; */
+  /* flex-shrink: 1; */
+  /* flex: 3 1 100px; */
+  flex:2;
+}
+
+@keyframes slide {
+  to {
+    transform: translate(200px);
+  }
+}
