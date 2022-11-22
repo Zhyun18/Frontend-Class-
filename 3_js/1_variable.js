@@ -47,6 +47,11 @@ var USERNAME;
 // 문제 1. num1 과 num2를 선언하고 각각 20, 30을 할당
 var num1 = 20;
 var num2 = 30;
+var num3, num4;
+num3 = num4 = 40;
+
+// 할당 -> 우항의 값을 좌항에 부여.
+// 선언과 할당 , 참조 : 꺼내어서 사용하는 것.
 
 //var num1, num2;
 //num1=20;
