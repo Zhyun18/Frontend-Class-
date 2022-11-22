@@ -1,3 +1,16 @@
+:root {
+  --header-height: 40px;
+  --main-color: #425384;
+  /*
+   재사용할 값을 변수에 저장한다. 
+    => 사용할 때는 var () 안에 변수명을 넣는다.
+  */
+}
+
+body {
+  padding-top: var (--header-height);
+}
+
 #header {
   display: flex;
   /* align-items: center; */
@@ -6,7 +19,13 @@
   border-bottom: 1px solid #ddd;
   max-height: 60px;
   overflow: hidden;
-  transition: 0.4s;
+  transition: max-height 0.4s;
+
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  top: 0;
+  left: 0;
 }
 
 #logo {
@@ -15,11 +34,13 @@
   left: 30px;
   font-size: 1.8rem;
   line-height: 60px;
+  color: var(--main-color);
 }
 
 #gnb {
   width: 100%;
 }
+
 #gnblist {
   display: flex;
   justify-content: center;
@@ -31,7 +52,7 @@
   align-items: center;
   justify-content: center;
   width: 100px;
-  height: 60px;
+  height: var(--header-height);
 
   text-align: center;
   line-height: 60px;
@@ -54,6 +75,75 @@ button {
   display: none;
 }
 
+/* 11/21 수업 */
+
+.imglist {
+  padding: 50px 0;
+}
+
+.imglist ul {
+  display: flex;
+  justify-content: center;
+  /* 주축 -> justify content: center */
+}
+
+.imglist ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: plum;
+  background: center / 100% no-repeat;
+
+  color: #fff;
+
+  /* flex-shrink:0 자동으로 줄어드는 걸 버티게 함. */
+
+  /* 모서리를 둥글게 처리한다. width = height & 50% 지정 */
+  border-radius: 50%;
+
+  transition: background 0.25s;
+}
+
+.imglist ul li a:hover {
+  background-size: 110%;
+  color: purple;
+  font-weight: 700;
+  /* 키워드 -키워드 여야지 키워드-숫자면 안됨.  */
+}
+
+.imglist ul li:nth-child(1) a {
+  background-image: url(../images/220606_\(72\).jpg);
+}
+
+.imglist ul li:nth-child(2) a {
+  background-image: url(../images/220606_\(82\).jpg);
+}
+
+.imglist ul li:nth-child(3) a {
+  background-image: url(../images/220606_\(86\).jpg);
+}
+
+.imglist ul li:nth-child(4) a {
+  background-image: url(../images/220606_\(88\).jpg);
+}
+
+.imglist ul li:nth-child(5) a {
+  background-image: url(../images/220606_\(83\).jpg);
+}
+
+.imglist ul li + li {
+  margin-left: 20px;
+}
+
+/*  */
+@media screen and (min-width: 960px) {
+  #header {
+    transition: 0s;
+  }
+}
+
 @media screen and (min-width: 640px) {
   #header:hover {
     max-height: 400px;
@@ -61,6 +151,10 @@ button {
 }
 
 @media screen and (max-width: 640px) {
+  :root {
+    --header-height: 50px;
+  }
+
   #header {
     justify-content: center;
   }
@@ -97,5 +191,16 @@ button {
   }
   #gnblist > li > a {
     height: 50px;
+  }
+
+  .imglist ul {
+    flex-direction: column;
+    align-items: center;
+    /*display: block; 과 동일 */
+  }
+
+  .imglist ul li + li {
+    margin-top: 10px;
+    margin-left: 0;
   }
 }
