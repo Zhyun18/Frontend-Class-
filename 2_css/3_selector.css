@@ -32,6 +32,10 @@ h3.green {
   padding: 0;
 }
 
+/* Question) .list -> 위치 상관 없?   
+   list 란 클라스 명이 딱 하나라 상관 없는 것 같음 .
+ */
+
 /* 자식 선택자 */
 .list > li {
   /* border: 1px solid black; */
@@ -74,7 +78,7 @@ input[type="checkbox"] {
   height: 100px;
 }
 
-.item.big {
+.item .big {
   width: 200px;
   height: 200px;
 }
