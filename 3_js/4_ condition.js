@@ -179,3 +179,6 @@ switch (Math.floor(score / 10)) {
 }
 
 console.log(grade);
+
+// 조건으로 따질 때는 if 문, 값을 비교해야 할 때는 switch 
+
