@@ -1,6 +1,7 @@
 /* 
     객체(Object)
         -key -value 형태로 여러 데이터를 저장할 수 있다. 
+        -여러 데이터를 합쳐서 고유한 정보를 나타내는 형태.
 */
 let user = {
   age: 33,
@@ -61,6 +62,7 @@ user02.introduce.call({ name: "hwangbo" });
 user02.introduce();
 
 // triangle 객체에 너비와 높이를 프로퍼티로 지정하고, getArea 넓이를 출력하는 메서드 만들기.
+
 let triangle = {
   height: 10,
   width: 20,

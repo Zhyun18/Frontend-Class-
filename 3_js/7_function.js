@@ -108,6 +108,14 @@ function func() {
 let getData = function fetchData() {
   console.log("익명함수입니다.");
 };
+
+// 식별자가 필요하다 => 함수 선언식 혹은 함수 표현식의 형태로 식별자를 써야 한다. 
+// => 값으로 전달되는 경우에는 식별자가 필요없다.
+//function (a,b) {
+// return 
+//}
+
+
 // not a function
 // 변수 호이스팅은 발생 (undefined) 근데 여기에 소괄호 붙이면 함수가 아.님 => not a function.
 // 변수는 선언문만 끌어올림.
@@ -175,3 +183,33 @@ function foo() {
 
 let copyFunc = foo;
 console.log(copyFunc());
+
+/* 
+  콜백함수(Callback Function)
+    => 함수의 값으로 전달되는 함수.
+    => 함수에서 실행되어야하는 코드가 나중에 정해질 때 사용한다. 
+    => 콜백함수로 익명함수를 많이 사용한다. 
+    => 값으로 전달할 때는 호출이 아니라 함수 자체를 전달해야 한다. 
+*/
+
+function repeat(repeatCount, callback) {
+  for(let i = 0; i < repeatCount; i++) {
+    callback();                                    // 미리 작성할 코드를 작성하면 됨 (함수)
+  }
+}
+
+/* 이름 없는 함수로 전달하는 경우 -
+
+repeat(5, function() {
+  console.log("코드실행!");
+});
+
+*/
+
+// 값으로 전달하는 경우 
+function print() {
+  console.log("코드실행!");
+} 
+
+repeat(5, print);
+
