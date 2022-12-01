@@ -99,7 +99,7 @@ if (!isInclude) {
 }
 
 /* 
-    배열의 고차함수 (Higher Order Function)
+    배열의 고차함수 (Higher Order Function) 
         - 고차함수란 함수로 인자로 전달받거나 함수를 반환하는 함수.
 */
 
