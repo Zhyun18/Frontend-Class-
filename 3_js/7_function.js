@@ -73,8 +73,8 @@ function getTotal(a, b, c) {
   return a + b + c;
 }
 
-function getAverage(num, count) {
-  return a + b + c;
+function getAverage(a, b, c) {
+  return (a + b + c) / 3;
 }
 
 console.log(divide(getTotal(3, 6, 9), 3));
@@ -109,12 +109,11 @@ let getData = function fetchData() {
   console.log("익명함수입니다.");
 };
 
-// 식별자가 필요하다 => 함수 선언식 혹은 함수 표현식의 형태로 식별자를 써야 한다. 
+// 식별자가 필요하다 => 함수 선언식 혹은 함수 표현식의 형태로 식별자를 써야 한다.
 // => 값으로 전달되는 경우에는 식별자가 필요없다.
 //function (a,b) {
-// return 
+// return
 //}
-
 
 // not a function
 // 변수 호이스팅은 발생 (undefined) 근데 여기에 소괄호 붙이면 함수가 아.님 => not a function.
@@ -193,8 +192,8 @@ console.log(copyFunc());
 */
 
 function repeat(repeatCount, callback) {
-  for(let i = 0; i < repeatCount; i++) {
-    callback();                                    // 미리 작성할 코드를 작성하면 됨 (함수)
+  for (let i = 0; i < repeatCount; i++) {
+    callback(); // 미리 작성할 코드를 작성하면 됨 (함수)
   }
 }
 
@@ -206,10 +205,9 @@ repeat(5, function() {
 
 */
 
-// 값으로 전달하는 경우 
+// 값으로 전달하는 경우
 function print() {
   console.log("코드실행!");
-} 
+}
 
 repeat(5, print);
-

@@ -28,6 +28,9 @@
  - *** while 문은 반복횟수가 불분명할때 사용.
  - ex: 사용자가 특정 값을 입력할 때까지 무한반복. 
  - continue 는 반복을 아예 중단하지 않고 해당 회차만 건너뜀. 
+
+ do while 문
+ - 일단 한번은 실행한다. 
 */
 
 // for 예시 찍어보기
@@ -103,7 +106,7 @@ while (true) {
   value++;
   if (i === 14) continue;
   if (i === 20) break;
-  console.log("value:", value);
+  //console.log("value:", value);
 }
 
 // num = 2 의 몇 제곱이 1000000 보다 큰지 while 문을 활용하여 알아내기.
@@ -128,6 +131,13 @@ var num03 = 0;
 while (true) {
   num03++;
   if (num03 % 2 === 0) continue;
-  if (num03 > 20) break;
+  if (num03 >= 20) break;
   console.log(num03);
 }
+
+// (do~while문) num04 =0,
+var num04 = 0;
+do {
+  console.log(num04);
+  num04++;
+} while (false);
