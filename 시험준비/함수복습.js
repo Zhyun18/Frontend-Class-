@@ -150,3 +150,58 @@ let addString = (str1, str2) => {
 };
 console.log(addString("안녕", "하세요"));
 console.log(add("안녕", "화살법"));
+// 위에서 만든 add 함수와 기능차이가 읍다~
+
+let getObj = (age, name) => ({
+  age: age,
+  name: name,
+});
+// {} -> 코드블럭, 객체로 인식됨.
+// Q.소괄호 넣는 이유..?
+
+let user = getObj(24, "jeehee");
+console.log(user);
+
+let globalFunc = function () {
+  console.log("외부 함수 실행");
+  let inner = function () {
+    console.log("내부 함수 실행");
+  };
+  inner();
+  console.log("외부 함수 실행");
+};
+globalFunc();
+/*
+- 스택 구조: First in Last Out. (FI) (LO)
+- () 안을 생략하면 함수 그 자체를 가리킴. 
+- 함수를 값으로 사용할 떄는 호출이 아니라 식별자를 참조해야함.
+*/
+
+function foo() {
+  return "foo";
+}
+
+let copyFunc = foo;
+console.log(copyFunc());
+
+// () 잊지말기
+
+// 콜백함수
+
+function repeat(repeatCount, callback) {
+  for (let i = 0; i < repeatCount; i++) {
+    callback(); // 괄호 안에 미리 작성할 코드를 작성하면 된다.
+  }
+}
+
+// 이름 없는 함수로 전달하는 경우 repeatCount =5, 코드 실행 문구 출력하기
+repeat(5, function () {
+  console.log("코드 실행");
+});
+
+// 값으로 전달하는 경우 -> 함수명 "print"
+function print() {
+  console.log("코드 실행");
+}
+
+repeat(5, print);

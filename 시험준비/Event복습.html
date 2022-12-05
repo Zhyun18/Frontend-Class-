@@ -1,0 +1,99 @@
+<!-- 
+    [개념복습]
+
+이벤트(Event)
+
+- 브라우저에서 일어나는 모든 사건 (사용자의 행동 포함)
+- ex: 특정 요소 클릭, 스크롤, 키보드 입력 등
+- JS를 이벤트 기반 싱글 스레드 언어라고 한다. (그게 뭔데 씹덕아)
+
+이벤트 바인딩(Event Binding)
+- 특정 이벤트가 일어났을 때 실행할 코드를 콜백 함수로 전달. 
+
+메서드 체이닝
+- 메서드를 연결해서 사용하는 방법
+
+이벤트 리스너(Event Listener)
+- 특정 이벤트가 발생하면 실행할 콜백 함수를 추가하거나 제거한다. 
+- 기존에 바인딩된 콜백함수를 덮어쓰지 않는다.
+- 세부적인 옵션을 정할 수 있다.
+- 첫번째 인자로 이벤트 종류의 문자열로 전달한다.
+- 접두사(prefix)로 on 이 붙지 않는다.
+- 두번째 인자로 콜백 함수를 전달한다. 익명함수를 주로 씀.
+- 콜백함수의 첫번째 인자로 Event 객체를 전달해준다. -> 매개변수 이름을 자유롭게 지어주면 된다.
+- 발생한 이벤트(사건)에 대해 다양한 정보를 담고 있다.
+
+Event.target: 이벤트가 발생한 실제 타겟(요소)
+Event.currentTarget: 이벤트가 실제로 바인딩된 요소. 이벤트가 전팓괸다. 
+
+ -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+        .container {
+            padding: 10px;
+            border: 3px solid black;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+  </head>
+   <div class="container">
+    <div class="box" onclick="console.log(`click`)"></div>
+   </div>
+   <script>
+    document.querySelector(".box").style.backgroundColor = "black"; 
+    // ID 명 X -> 딱 한개의 박스 선택하는 것. 
+
+    let arr = [1, 3, 4, 6, 8];
+    let eventCount = arr.filter(function (num) {
+        return num % 2 === 0;
+    });
+    length;
+    // 메서드 체이닝 예시 : filter 가 배열을 반환하기 때문에 바로 배열과 관련된 메서드와 프로퍼티를 사용할 수 있다. 
+
+    let boxElem = document.querySelector(".box");
+    boxElem.onclick = function () {
+        console.log("이벤트 바인딩");
+    };
+    // 요소에 이벤트 바인딩: 기존의 이벤트를 덮어쓴다. 
+
+    function changeColor() {
+        alert("클릭 이벤트 발생!");
+        this.style.backgroundColor = "red";
+    }
+    // alert("메시지"): 경고창을 발생시키는 함수
+
+    boxElem.addEventListener("click", changeColor, true);
+    boxElem.addEventListener("mouseover", function() {
+        console.log("mouseover");
+    });
+    // 바인딩된 콜백함수를 지울 때 사용 -> 등록될 떄 식별자로 등록해야 지울 수 있다. 등록 시의 세부 옵션과 동일하게 전달해야함. 
+
+    boxElem.removeEventListener("click", changeColor, true);
+
+    // .container에 마우스가 올라가면 테두리 색상 빨강색으로 바꾸기  // 테두리 색상은 bordercolor 
+    let container = document.querySelector(".container");
+    container.addEventListener("mouseover", function() { // 함수명 없어도 가넝한. 
+        this.style.borderColor = "red";
+    });
+
+    // 마우스가 빠져 나갈떄 의 이벤트 바인딩 
+    container.addEventListener("mouseout", function(e) {
+        console.log(e);
+        console.dir(e.target, e.currentTarget);
+        container.style.borderColor = "black"
+    });
+
+   </script>
+  </body>
+</html>
