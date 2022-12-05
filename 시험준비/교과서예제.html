@@ -39,6 +39,7 @@
         padding: 10px;
         line-height: 2em;
       }
+      /* p작성한게 없으니 따로 안해도 될듯욥.... */
     </style>
   </head>
   <body>
@@ -58,3 +59,23 @@
     </script>
   </body>
 </html>
+
+<!-- 
+  
+  해법 복습 
+
+1)css 태그로 박스 꾸며주기
+2)body 부분
+  <ul>
+    <li><a href="#" onclick="()">색깔이름</a></li>             1) a태그에 링크, onclick 걸기 
+  </ul>
+  2) (result)아이디값 부여 
+3)script 부분 
+  함수설정 
+  function changeBg(color) {
+    let result = document.querySlector(`#result`);
+    result.style.backgroundColor = color;
+  } 
+// result 볌수 = 선택자 부여 
+result.style.backgroundColor = color; 
+-->

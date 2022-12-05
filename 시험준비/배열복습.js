@@ -153,6 +153,14 @@ colorArr.forEach(function (item, idx) {
   if (idx % 2 === 0) console.log(item, idx); // 짝수번째 인자만 출력하기 item -인자 idx- 순서s
 }); // 출력값 red 0. yellow 2
 
+/*
+연습: let colorArr = ["red", "blue", "yellow"]; 이 중에서 짝수번째 인자만 출력.
+color.forEach(function(item, idx) {
+  if(idx % 2 === 0) console.log(items, idx);
+});
+
+*/
+
 // filter : callback 함수의 return 값이 true 인 요소만 모아서 새로운 배열로 반환.
 
 let numList = [10, 13, 20, 30, 51];
@@ -163,6 +171,18 @@ let result02 = numList.fliter(function (num) {
 
 console.log(result, numList); // 출력값 [10, 20, 30] [10,13,20,30,51]
 
+/*
+filter연습, 두번째 인자만 출력하기
+let numList = [10, 13, 20, 30, 51];
+let result = numList.filter((num) => num % 2 === 0);
+*/
+
+/*
+let result = numList.fliter(function(num) {
+  return num % 2 ===0;
+});
+*/
+
 // protype.map: 각 요소에 변형을 줄때, return 값을 모은 배열을 새로 반환.
 let doubleList = numList.map(function (num) {
   return num * 2;
@@ -170,6 +190,15 @@ let doubleList = numList.map(function (num) {
 
 let doubleList02 = numList.map((num) => num * 2);
 console.log(doubleList02, numList); // return 값이 각 인자에 2 곱해서 ㅇㅇ
+
+/*
+protype.map ->  각 배열의 요소에 * 2
+let doubleList = numList.map(function(num) {
+  return num * 2;
+})
+
+let doubleList = numList.map((num) => num * 2);
+console.log(doubleList, numList);
 
 /* 
 
