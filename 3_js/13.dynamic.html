@@ -73,7 +73,7 @@
 
       divElem.innerHTML =
         "<div class='box'>박스</div><div class='box'>박스</div><div class='box'>박스</div>";
-
+      
       // innerHTML의 성능 저하 개선 => 문자열에 연결 연산자를 통해 긴 문자열을 만들어 한번만 innerHTML 에 할당한다.
       let str = "";
       for (let i = 0; i < 100; i++) {

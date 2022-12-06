@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic</title>
+    <style>
+      .container {
+        width: 500px;
+        border: 3px solid red;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .container .box {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Hello World</h1>
+    <script>
+      let divElem = document.createElement("div"); // div 요소노드 생성
+      divElem.setAttribute("class", "container"); // class 속성 설정
+      divElem.innerText = "컨테이너 생성!"; //innerText는 textnode를 확인하는 프로퍼티. 값을 변경하면 텍스트 노드가 바뀜.
+      console.log(document.querySelector("h1").innerText);
+
+      //body 태그에 div.container 추가
+      document.body.appendChild(divElem); // appenchild() -> div.container가 자식
+      divElem.innerText = "변경";
+
+      // (문제. ) div.box 요소 하나를 .container 요소에 추가하기. "박스" 글씨 넣기
+      let boxElem = document.createElement("div"); // 요소노드 생성
+      boxElem.classList.add("box"); // 필요한 속성노드 붙여준다.
+      boxElem.innerText = "박스"; // 필요한 컨텐츠를 넣어준다.
+      divElem.innerText = "<div class='box'></div>"; // 문자열을 그냥 텍스트 노드로 해석.
+
+      divElem.innerHTML =
+        "<div class='box'>박스</div><div class='box'>박스</div><div class='box'>박스</div>"; //백팁 작은 따옴표가 안되고 터미널이열릴땐...?
+      let str = "";
+      for (let i = 0; i < 100; i++) {
+        str += "<div class='box'>박스</div>";
+      }
+      divElem.innerHTML = str;
+
+      document.querySelector(".box").addEventListener("click", function () {
+        alert("클릭!");
+      });
+      divElem.innerHTML += "<div class='box'>박스</div>"; //기존의 버안당이 사라진다
+
+      // (문제.) 각 박스 클릭시 클릭한 박스 빨강색으로 변경.
+      // boxList의 모든 요소에 이벤트를 바인딩한다. => 이벤트전파. 위임 (Delegate)
+      let boxList = document.querySelecotorAll(".box");
+      boxList.forEach(function (box) {
+        box.addEventListener("click", function () {
+          box.style.backgorundColor = "red";
+        });
+      });
+      // 모든 요소가 이벤트를 가지고 있으면 된다.
+    </script>
+  </body>
+</html>

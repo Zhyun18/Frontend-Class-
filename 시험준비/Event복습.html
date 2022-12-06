@@ -50,6 +50,15 @@ Event.currentTarget: 이벤트가 실제로 바인딩된 요소. 이벤트가 �
    <div class="container">
     <div class="box" onclick="console.log(`click`)"></div>
    </div>
+   <div class="numBox">
+    <input type="number" />
+    <button>등록</button>
+   </div>
+   <!-- numBox 클래스에, 숫자 입력할 버튼생성  -->
+
+   <a href="http://google.com">Google</a>
+   <!-- 구글 링크 생성 -->
+
    <script>
     document.querySelector(".box").style.backgroundColor = "black"; 
     // ID 명 X -> 딱 한개의 박스 선택하는 것. 
@@ -93,6 +102,38 @@ Event.currentTarget: 이벤트가 실제로 바인딩된 요소. 이벤트가 �
         console.dir(e.target, e.currentTarget);
         container.style.borderColor = "black"
     });
+
+    let inputElem = document.querySelector("input");
+    let numBtn = document.querySelector(".numBox button")
+    // 인풋, 버튼 -> css 인자로 받음
+
+    numBtn.addEventListener("click", function(){
+        boxElem.style.width = inputElem.value + "px";
+        console.log(ParseInt(inputElem.value));
+    })
+    /* 
+    - boxElem에다가 거는이유 -> .box 를 선택한 css 선택자 변수선언했으니까
+    - let boxElem = document.querySelector(".box");임 
+    - button 클릭 시 상자 너비 변경하기  (시험문제)
+    - 이벤트 리스너: 특정 이벤트가 발생하면 실행할 콜백 함수 추가!
+    - parseInt(문자열) : 문자열을 숫자형 데이터로 변환. 
+    */
+
+    document.body.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            alert(e.target.value);
+        }
+    });
+    /*
+    - keyup : 키를 눌렀다가 뗄 때 한번 발생.
+    - keydown : 키를 누를때 한번 발생
+    - keypress : 키를 누르고 있는동안 연속으로 발생
+    */
+    document.querySelector("a").addEventListener("click", function(e) {
+        e.preventDefault();
+    });
+    
+// Event.preventDefault() : 요소가 가지는 기본 기능을 실행하지 않는다. 
 
    </script>
   </body>
