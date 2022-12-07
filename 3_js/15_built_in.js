@@ -60,12 +60,35 @@ let date = today.getDate();
 let day = today.getDay(); // 0부터 시작 0(일요일) ~6(토요일)
 //console.log(year); // 2022 가 출력.
 //console.log(today); // 객체 프로퍼티가 나오지 않고 현재시간이 나옴.
+
+console.log(`${year}년 ${month}월 ${date}일 ${day}`);
 console.log(year, month, date, day); //2022 11 출력.// date 까지 입력하면 12월이라고 제대로 나옴. //  day -> 월화수목금토 개념을 숫자로 (화요일 기준: 2로 출력)
 
 let hours = today.getHours();
 let minutes = today.getMinutes();
 let seconds = today.getSeconds();
 console.log(hours, minutes, seconds);
+
+// Date.prototype.toLocaleDateString() : 사용자의 문화권에 맞게 시간 표기를 해준다.
+/*
+let dateStr = today.toLocaleDateString("ko-KR", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour: "numeric",
+});
+console.log(dateStr);
+*/
+
+let dateStr = today.toLocaleDateString("ko-KR", {
+  dateStyle: "full",
+});
+
+let timeStr = today.toLocaleTimeString("ko-KR", {
+  timeStyle: "full",
+});
+console.log(dateStr, timeStr);
+// 한번에 출력하는 방법.
 
 today.setFullYear(2021);
 today.setMonth(9); // 10월을 찍고 싶을때 -1 해서 넣기 (0부터 시작이니까.......)
@@ -75,4 +98,67 @@ today.setDate(today.getDate() - 1); // 30 - 1 = 29
 //날짜로 변환 가능한 문자열을 통해서 특정 날짜를 생성할 수 있다.
 let yesterday = new Date("2022-11-6");
 console.log(yesterday);
+
 console.log(today);
+
+// Math : 수학관련 프로퍼티와 메서드 제공 => 주로 정적 프로퍼티(메서드 포함)를 사용한다.
+console.log(Math.PI * 2 * 10); //반지름 길이가 10인 원의 둘레
+console.log(Math.sin(Math.PI / 4)); // PI = 180도
+
+let float = 1.5234623547;
+let int = parseInt(float); // 실수를 정수로 -> 소수점 이하 숫자 내림 , parseInt( ) : 실수를 정수로 바꿀 때도 사용한다. 소수점 이하의 숫자를 버린다. (내림)
+console.log(float, int); // int : 정수, float: 실수, 팔스인트라고 발음한다.
+
+// 소수점 이하 내림
+console.log(Math.floor(float)); // 1이 출력됨. 내림 처리한다. 소수점 이하의 숫자를 버린다.
+
+// 소수점 이하 올림
+console.log(Math.ceil(float)); // 2가 출력됨. 올림 처리한다. (1.1 이라도 2로 올려버리기~)소수점 이하의 숫자를 버리고 숫자를 증가시킨다.
+
+// 소수점 이하 반올림
+console.log(Math.round(float)); // 반올림 처리한다. 이 경우 1.5234 -> 2 로 출력되무.
+
+// 문제 111 -> 120
+/*
+var num = 111; // let 은 왜 안돼나요...?
+console.log(((num + 9) / 10) * 10);
+*/
+console.log(Math.ceil(111 / 10) * 10);
+// 십의자리 올림하고 싶으면 / 100 * 100 하면 옼케.
+
+//Math.random() : 0~1 사의의 랜덤한 실수를 반환한다.(실제 랜덤은 아님.)
+console.log(Math.floor(Math.random() * 10) + 1); // 0 < x < 10  -> x10  0~0.99999 = 0, 1~1,99999 = 1 버려~ 0 < x < 9 // 실행할떄마다 0~9 사이의 수 출력됨.
+// 1~10 출력하려면 +1 하면 된다 (위의 결과값에) , * -> 범위를 늘려주는 역할, + -> 시작점을 늘려주는 역할.
+// 1~9 출력하고 싶으면 * 10 대신 *9 +1 , 2~9 -> * 8 + 2
+
+// 1~45 사이의 로또 6개 번호 추첨하기 (중복 니니~) => 반환하는 함수 만.들.기
+/*
+ 1) 1~45 가 들어있는 배열에서 랜덤한 인덱스 6번을 꺼내면 됨. => 인덱스 범위가 넘징 ㅏㄶ게 주의
+ 2) result 담으면서 이미 있는 값인지 확인하기 (배열 관련 함수)
+*/
+
+/* 나의 시도
+function getLottoNum() {
+  Math.floor(Math.random() * 45 + 1); // 1~45
+  let lotto = [1, 2, 3, 4, 5, 6];
+  lotto.push(7);
+  document.write(lotto);
+  //return [1~45 중 6개, 중복 x]
+}
+*/
+
+function getLottoNum() {
+  let result = [];
+  // result 배열의 길이가 6이 되기 전까지만 실행 => 요소가 6개가 되는 순간 반복을 멈춘다.
+  while (result.length < 6) {
+    // result 가 여섯개 까지
+    let num = Math.floor(Math.random() * 45) + 1;
+    if (!result.includes(num)) result.push(num); // result 배열에 랜덤한 수 num이 없을때만 push  배열의 요소가 있는지 확인하는 함수 .includes -> 중복피하기 위해 !result
+  }
+
+  return result;
+}
+
+console.log(getLottoNum());
+
+// 나 왜 오류 뜨냐? 
