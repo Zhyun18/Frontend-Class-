@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "잘될까요?",
+      "author": "hbs3912",
+      "id": 2
+    },
+    {
+      "title": "대학생학대 거꾸로 해도 대학생학대",
+      "author": "hbs3912",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
