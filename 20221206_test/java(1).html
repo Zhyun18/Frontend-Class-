@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="buttons">
+      <button><a onclick="changeBg(`red`)">red</a></button>
+      <button><a onclick="changeBg(`yellow`)">yellow</a></button>
+      <button><a onclick="changeBg(`blue`)">blue</a></button>
+      <div id="result"></div>
+    </div>
+    <div class="numBox">
+      <input type="number" />
+      <button>change</button>
+    </div>
+    <script>
+      let boxElem = document.querySelector(".box");
+      // 색상 변경 -> 교과서 방법대로 했습니다... 0번째 1번째라 buttons[] 요렇게 했는데 어림도 없었어요... 흑흑
+
+      function changeBg(color) {
+        let buttons = document.querySelector(`#result`);
+        boxElem.style.backgroundColor = color;
+      }
+
+      // 사이즈변경
+      let inputElem = document.querySelector("input");
+      let numBtn = document.querySelector(".numBox button");
+      numBtn.addEventListener("click", function () {
+        boxElem.style.width = inputElem.value + "px";
+      });
+    </script>
+  </body>
+</html>
