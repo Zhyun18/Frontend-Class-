@@ -3,9 +3,55 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color:inherit;
+}
+
 li {
     list-style:none;
 }
+
+header {
+    position: relative;
+}
+
+#logo{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    /* 기준 :  */
+}
+
+#gnbList {
+    display: flex;
+    justify-content: center;
+}
+
+
+#gnbList li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* a태그는 인라인 요소니까  */
+
+    color: black;
+    width: 100px;
+    height: 60px;
+     
+}
+
+#gnbList li a:hover {
+    background-color: #bbb;
+    color: #fff;
+    
+}
+
+header .menu {
+    display: none;
+}
+
 .container {
     overflow: hidden;
     position: relative;
@@ -71,4 +117,61 @@ li {
 .btnList :hover {
     background-color: rgba(0, 0, 0, 0.6
     );
+}
+
+@media screen and (max-width : 900px) {
+    header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 60px;
+    }
+
+    header .menu {
+        display: initial;
+        margin-right: 20px;
+    }
+    /* initial : 요소가 가진 초기값 */
+    #gnb {
+        display: none;
+        position: absolute;
+        right: left;
+        top: 0;
+        z-index: 100;    
+        width: 100vw;
+        height: 100vh;
+        
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    #gnb.on {
+        display: block;
+        overflow: hidden;
+    }
+    /* class 있을 때, 없을 떄  */
+    #gnbList {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 300px;
+        height: 100vh;
+        z-index: 100;
+        background-color: #fff;
+        /* 화면 밖으로 이동 */
+        transform: translate(100%)
+        animation: slide 0.4s forwards;
+    }
+    #gnbList li a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+@keyframes slide {
+    to {
+        transform: translate(0);
+    }
 }

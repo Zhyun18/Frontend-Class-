@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width:100px;
+            height:100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <div class="buttonList">
+    <button>red</button>
+    <button>yellow</button>
+    <button>blue</button>
+    </div>
+
+    <div class="numBox">
+        <input type="number">
+        <button>change</button>
+    </div>
+
+    <script>
+        // css 선택자 + 이것저것 발생시켜주는 거 addEventListener!!!! 
+        // 색깔바꾸기 (태그에 속성 안 넣고 하는 방법으로 )
+       let buttonList = document.querySelectorAll(".buttonList button") 
+       let boxElem = document.querySelector(".box");
+       buttonList[0].addEventListener("click", function(color) {
+        boxElem.style.backgroundColor ="red";
+       })
+       buttonList[1].addEventListener("click", function(color) {
+        boxElem.style.backgroundColor ="yellow";
+       })
+       buttonList[2].addEventListener("click", function(color) {
+        boxElem.style.backgroundColor ="blue";
+       })
+     
+    
+       // 크기 바꾸기 
+    let numButton = document.querySelector(".numBox");
+    let inputElem = document.querySelector("input"); // input !!!! 
+    numButton.addEventListener("click", function() {
+        boxElem.style.width = inputElem.value + "px";
+    })
+    </script>
+</body>
+</html>

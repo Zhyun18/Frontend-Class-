@@ -16,6 +16,28 @@ btnList.forEach((btn,idx) => {
     });
 });
 
+let gnb = document.getElementById("gnb");
+gnb.addEventListener("click", function(e) {
+    // 실제 이벤트가 발생한 타겟과 이벤트가 바인딩된 요소와 동일할 때에만 실행. 
+    if(e.target === e.currentTarget)
+    setTimeout(function () {
+    gnb.classList.remove("on");
+    },2000);
+    // 인라인 스타일로 바꾸는 것 유의 
+   
+});
+
+// 메뉴버튼 클릭시 메뉴 보이게 
+let menuBtn = document.querySelector(".menu");
+menuBtn.addEventListener("click", function() {
+    // #gnb의 클래스 목록에 "on"추가
+    gnb.classList.add("on");
+});
+
+    // 항상 잘 찍히는 지 확인하기 console.log("click"); 
+
+
+
 /*
 let btn01 = document.querySelector(".btnList li:nth-child(1)");   //querySelector: css 선택자
 let btn02 = document.querySelector(".btnList li:nth-child(2)");   //querySelector: css 선택자
