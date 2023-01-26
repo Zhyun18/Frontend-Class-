@@ -40,9 +40,11 @@ if (num > 0) {
   console.log("num은 양수입니다.");
 }
 
+
 if (num < 0) {
   console.log("num은 음수입니다.");
 }
+
 
 // 피드백 -> num이 양수일 때의 조건문, num이 음수일 떄의 조건문 각자 작성. 중첩은 ㄴㄴ
 
